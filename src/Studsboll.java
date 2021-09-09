@@ -5,14 +5,36 @@
  */
 public class Studsboll {
     public static void main(String[] args) {
-         double t = 0;
-         double y = 0;
-         double a = 9.82;
+    double deltaT = 0.1;
+    double a = -9.82;
+    double v = 0;
+    double y = 10;
+    double x = 10;
+    double t = 0;
+    double e = 0.9;
 
-        while (boll studsa take t and change every 1 sec){
+        double v = v0*t*dt;
 
+        for (int i = 0 ; i < 100 ; i++) {
+            System.out.println(t + ";" + y);
+            t += deltaT;
+            if (y<0){
+                v = -v;
+            } else {
+                v += a + deltaT;
+            }
+            y += v*deltaT
         }
 
-        System.out.println("[T=" +t+ "]"+"[Y="+y+"]");
+        while (true) { // printa varje sekund
+            long var = System.currentTimeMillis() / 1000;
+            double var2 = var % 2;
+            if (var2 == 1.0) {
+                v0 += 1;
+                t += 0.00001;
+                System.out.println("[T=" + t + "]" + "[Y=" + v0 + "]");
+
+            }
+        }
     }
 }
